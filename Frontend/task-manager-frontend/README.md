@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Task Manager API & Frontend
 
-## Available Scripts
+Este proyecto incluye una API para gestionar tareas y un frontend en React para interactuar con esta API.
 
-In the project directory, you can run:
+## Requisitos
 
-### `npm start`
+- Java 11 o superior
+- Maven
+- Node.js y npm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Configuración del Backend (API)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Paso 1: Configurar el Archivo `application.properties`
 
-### `npm test`
+Crea un archivo `src/main/resources/application.properties` con el siguiente contenido:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.h2.console.enabled=true
+spring.jpa.hibernate.ddl-auto=update
+```
 
-### `npm run build`
+> **Nota**: Este proyecto utiliza una base de datos H2 en memoria. No es necesario un script SQL para configurar la base de datos, ya que H2 se inicializa automáticamente con el esquema y los datos necesarios al arrancar la aplicación.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Paso 2: Construir y Ejecutar la Aplicación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+mvn clean install
+mvn spring-boot:run
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La API estará disponible en `http://localhost:8080/api/tasks`.
 
-### `npm run eject`
+### Endpoints de la API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `GET /api/tasks`: Obtener todas las tareas
+- `GET /api/tasks/{id}`: Obtener una tarea por ID
+- `POST /api/tasks`: Crear una nueva tarea
+- `PUT /api/tasks/{id}`: Actualizar una tarea existente
+- `DELETE /api/tasks/{id}`: Eliminar una tarea
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Configuración del Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Paso 1: Instalar Dependencias
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+### Paso 2: Ejecutar la Aplicación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El frontend estará disponible en `http://localhost:3000`.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
