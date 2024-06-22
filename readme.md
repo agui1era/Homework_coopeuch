@@ -43,6 +43,7 @@ La API estará disponible en `http://localhost:8080/api/tasks`.
 
 ## Configuración del Frontend
 
+Dentro de la carpeta del proyecto ejecutar los siguientes comandos:
 
 ### Paso 1: Instalar Dependencias
 
@@ -50,7 +51,7 @@ La API estará disponible en `http://localhost:8080/api/tasks`.
 npm install
 ```
 
-### Paso 32: Ejecutar la Aplicación
+### Paso 2: Ejecutar la Aplicación
 
 ```bash
 npm start
