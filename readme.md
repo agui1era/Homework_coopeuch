@@ -1,19 +1,18 @@
-
 # Task Manager API & Frontend
 
-Este proyecto incluye una API para gestionar tareas y un frontend en React para interactuar con esta API.
+This project includes an API for managing tasks and a React frontend for interacting with this API.
 
-## Requisitos
+## Requirements
 
-- Java 11 o superior
+- Java 11 or higher
 - Maven
-- Node.js y npm
+- Node.js and npm
 
-## Configuración del Backend (API)
+## Backend Configuration (API)
 
-### Paso 1: Configurar el Archivo `application.properties`
+### Step 1: Configure the `application.properties` File
 
-Crea un archivo `src/main/resources/application.properties` con el siguiente contenido:
+Create a `src/main/resources/application.properties` file with the following contents:
 
 ```properties
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -24,37 +23,37 @@ spring.h2.console.enabled=true
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-### Paso 2: Construir y Ejecutar la Aplicación
+### Step 2: Build and Run the Application
 
 ```bash
 mvn clean install
 mvn spring-boot:run
 ```
 
-La API estará disponible en `http://localhost:8080/api/tasks`.
+The API will be available at `http://localhost:8080/api/tasks`.
 
-### Endpoints de la API
+### API Endpoints
 
-- `GET /api/tasks`: Obtener todas las tareas
-- `GET /api/tasks/{id}`: Obtener una tarea por ID
-- `POST /api/tasks`: Crear una nueva tarea
-- `PUT /api/tasks/{id}`: Actualizar una tarea existente
-- `DELETE /api/tasks/{id}`: Eliminar una tarea
+- `GET /api/tasks`: Get all tasks
+- `GET /api/tasks/{id}`: Get a task by ID
+- `POST /api/tasks`: Create a new task
+- `PUT /api/tasks/{id}`: Update an existing task
+- `DELETE /api/tasks/{id}`: Delete a task
 
-## Configuración del Frontend
+## Frontend Configuration
 
-Dentro de la carpeta del proyecto ejecutar los siguientes comandos:
+In the project folder, run the following commands:
 
-### Paso 1: Instalar Dependencias
+### Step 1: Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Paso 2: Ejecutar la Aplicación
+### Step 2: Run the Application
 
 ```bash
 npm start
 ```
 
-El frontend estará disponible en `http://localhost:3000`.
+The frontend will be available at `http://localhost:3000`.
